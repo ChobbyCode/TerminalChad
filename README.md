@@ -3,15 +3,26 @@
 
 ## Indexes 
 
+## Features
+
+- Reworks look of Powershell
+- Customisable startup message
+
+### Also included with Terminal Chad (If the install script works as intended)
+- [NeoVim](https://neovim.io)
+- [NvChad](https://nvchad.com)
+- [Zig 'The Chad Language'](https://ziglang.org)
+
 ## Installation
 
-To install the application run the following command:
+TerminalChad has a very simple way of installing itself. All you require is git, a nerd font and powershell. Run all the commands in powershell. If you have any issues, please build the app from scratch and report it in the issues tab.
 
 ## Dependecies
 
 #### Required
 - Nerd Font (any will do)
 - Powershell + Windows Terminal
+- Git
 
 #### Extras
 - Some random file editor (neovim recommended)
@@ -21,9 +32,8 @@ To install the application run the following command:
 
 #### 1. Clone git repo
 
->> Please make sure you change 'YOU' to your actual user
 ```powershell
-git clone "https://github.com/ChobbyCode/TerminalChad.git" C:/users/YOU/appdata/roaming/TerminalChad/ --depth 1
+git clone "https://github.com/ChobbyCode/TerminalChad.git" %USERPROFILE%/appdata/roaming/TerminalChad/ --depth 1
 ```
 
 #### 2. Setup $Profile for usage 
@@ -40,8 +50,7 @@ code $Profile // Open in VSCode
 ```
 
 Add the following commands to the '$Profile' file:
->> Please make sure you change 'YOU' to your actual user
 ```powershell
-powershell -noprofile -noexit -command "invoke-expression'. ''"C:/users/YOU/appdata/roaming/TerminalChad/profile.ps1"''' "
+powershell -noprofile -noexit -command "invoke-expression'. ''"%USERPROFILE%/appdata/roaming/TerminalChad/profile.ps1"''' "
 ```
 
