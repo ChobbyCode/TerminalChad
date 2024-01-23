@@ -5,7 +5,8 @@ pub fn ListMethods() void {
     print("Copyright (c) ChobbyCode 2024. All rights reserved. \n", .{});
     print("\n", .{});
     printTabbed("update   - Updates the application");
-    printTabbed("settings - Opens the settings files");
+    printTabbed("install  - Installs the application");
+    printTabbed("config   - Opens the config file");
 }
 
 fn printTabbed(comptime text: []const u8) void {
