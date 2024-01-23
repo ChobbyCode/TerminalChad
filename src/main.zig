@@ -14,6 +14,8 @@ pub fn main() !void {
 
     if (args.len == 1) {
         list.ListMethods();
+    } else {
+        processInput(args[1]);
     }
 }
 
