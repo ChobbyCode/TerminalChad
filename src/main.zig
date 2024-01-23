@@ -1,5 +1,9 @@
 const std = @import("std");
+const print = std.debug.print();
 const list = @import("Methods/list.zig");
+
+// Methods Stuff
+const Installer = @import("install.zig");
 
 pub fn main() !void {
     // Get the arguments past into the application
@@ -11,4 +15,17 @@ pub fn main() !void {
     if (args.len == 1) {
         list.ListMethods();
     }
+}
+
+fn processInput(i: []const u8) !void {
+    // Ugly if statements because I don't think there's switch statements
+    if (std.mem.eql(i, "install")) {
+        Installer.Install();
+    } else {
+        print("Invalid 'chad' input");
+    }
+}
+
+fn printTerminal(i: []const u8) !void {
+    print(i ++ "\n", .{});
 }
