@@ -20,8 +20,9 @@ winget install Microsoft.DotNet.SDK.8
 winget install JanDeDobbeleer.OhMyPosh
 winget install Neovim.Neovim
 ```
+You also require the base fonts, you can download them by clicking below. Just extract the zip file and select all the fonts, then right click and install. [Credits NerdFonts](https://www.nerdfonts.com/font-downloads)
 
->> You may need to manually install your [NerdFonts](https://www.nerdfonts.com)
+[Click here to download all the required nerd fonts in TerminalChad for the base themes](https://github.com/ChobbyCode/TerminalChad/raw/main/src/TerminalChad/Fonts/TerminalChad-Fonts.zip)
 
 ## Installing Application
 
