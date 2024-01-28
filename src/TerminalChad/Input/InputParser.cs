@@ -20,6 +20,8 @@ internal class InputParser
                 InputMessages.PrintVersion();
                 break;
             case "setup":
+                Setup.Setup setup = new();
+                setup.Init();
                 break;
         }
     }

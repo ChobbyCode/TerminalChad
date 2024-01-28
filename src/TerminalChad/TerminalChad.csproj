@@ -15,4 +15,10 @@
     <None Include="E:\source\repos\TerminalChad\src\TerminalChad\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="WriteFiles\Terminal\settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
