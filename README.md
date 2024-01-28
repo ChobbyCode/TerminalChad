@@ -18,8 +18,38 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 - Nerd Font [(Here is the required one for the default theme)](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Terminus.zip)
 - Powershell + Windows Terminal
 - [Dotnet 8.0 RunTime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.101-windows-x64-installer)
+- [Oh My Posh](ms-windows-store://pdp/?productid=XP8K0HKJFRXGCK)
 
 ## Installing Application
+
+## New
+
+### 1. Download Instaler
+
+Navigate to the releases page and download your selected instaler. Then run the instaler, follow the provided instructions.
+
+### 2. Setup TerminalChad
+
+Once you have installed TerminalChad, we next need to enable it. This is easily done by typing the following command in Windows Terminal:
+```bash
+TerminalChad setup
+```
+
+### 3. Selecting a Theme
+
+To select a theme just type TerminalChad theme, this will give you a list themes.
+We can then type the name of the theme after the command i.e.
+```bash
+terminalchad theme
+terminalchad theme retro-clean
+```
+
+There are several themes included in TerminalChad, however you can make your own:
+
+>> This is yet to be made
+[Click here to view how to make your own theme]()
+
+## Old
 
 >> This is for non installer supported platforms
 
