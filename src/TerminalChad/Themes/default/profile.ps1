@@ -13,7 +13,7 @@ else
     Write-Host "Terminal Chad Small Mode"
 }
 
-$ohmyposhLoc = $RunDirectory + "\Config\Posh\config.json"
+$ohmyposhLoc = $RunDirectory + "\config.json"
 oh-my-posh.exe init pwsh --config $ohmyposhLoc  | Invoke-Expression
 
 
