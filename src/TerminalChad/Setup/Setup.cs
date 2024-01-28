@@ -5,10 +5,10 @@ namespace TerminalChad.CLI.Setup;
 
 internal class Setup
 {
-    private string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-    private string TerminalChadFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/";
-    private string ThemeFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Themes/";
-    private string ActiveFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/";
+    private string _baseDir = AppDomain.CurrentDomain.BaseDirectory;
+    private string _terminalChadFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/";
+    private string _themeFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Themes/";
+    private string _activeFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/";
 
     public void Init()
     {
@@ -21,17 +21,17 @@ internal class Setup
         ThemeLoader loader = new ThemeLoader();
         loader.LoadTheme("default");
 
-        Console.WriteLine("Successfully Setup. Please start a new instance of Powershell Terminal for certain changes to take place");
+        Console.WriteLine("Successfully Setup. Please start a new instance of Powershell Terminal for certain changes to take place \n");
     }
 
     private void CreateFolders()
     {
-        CreateFolder(TerminalChadFolder);
-        CreateFolder(ThemeFolder);
-        CreateFolder(ActiveFolder);
+        CreateFolder(_terminalChadFolder);
+        CreateFolder(_themeFolder);
+        CreateFolder(_activeFolder);
 
-        DirectoryInfo source = new DirectoryInfo($"{baseDir}/Themes");
-        DirectoryInfo target = new DirectoryInfo(ThemeFolder);
+        DirectoryInfo source = new DirectoryInfo($"{_baseDir}/Themes");
+        DirectoryInfo target = new DirectoryInfo(_themeFolder);
 
         CopyFiles(source, target);
     }
@@ -50,7 +50,7 @@ internal class Setup
 
     private void UpdateLocalThemes()
     {
-        File.Copy(baseDir + @"\Themes", ThemeFolder);
+        File.Copy(Path.Combine(_baseDir, "\\Themes"), _themeFolder);
     }
 
     private void CopyFiles(DirectoryInfo source, DirectoryInfo target)

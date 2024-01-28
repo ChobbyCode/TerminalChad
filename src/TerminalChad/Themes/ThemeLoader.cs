@@ -12,10 +12,11 @@ internal class ThemeLoader
 
     public void LoadTheme(string theme)
     {
-        Theme = theme;
-        if(Directory.Exists($"{ThemeFolder}{theme}"))
+        Theme = theme.ToLower();
+        if(Directory.Exists(Path.Combine(ThemeFolder, theme)))
         {
             CopyTheme();
+            Console.WriteLine("Theme installed. Please start a new instance of Powershell Terminal for certain changes to take place");
         }else
         {
             Console.WriteLine("Theme doesn't exist");
