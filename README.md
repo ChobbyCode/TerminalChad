@@ -23,6 +23,13 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 
 >> This is for non installer supported platforms
 
+### 0. Run This Command
+
+Breaking News: Run this command or stuff breaks
+```
+New-Item -Path $profile -Type File -Force
+```
+
 ### 1. Clone Repository
 
 Clone the following repository using git or download manually
