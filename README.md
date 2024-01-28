@@ -1,6 +1,13 @@
 <h1 align="center">Terminal Chad</h1>
 <h6 align="center">Making your terminal giga again</h6>
 
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/cdf6a6fc-43d4-4405-9130-e4f2ac88f06d" alt="drawing" width="49%"> 
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/feb8aa1e-e147-4bd5-83e9-6a2cab7bc33f" alt="drawing" width="49%">
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/7694a21e-8b4d-49c9-8088-adfe74e05bf2" alt="drawing" width="98%">
+
+>>> Themes subject to change | early theme testing
+
+
 ## Indexes 
 
 ## Features
