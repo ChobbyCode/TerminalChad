@@ -1,4 +1,6 @@
-﻿namespace TerminalChad.Themes;
+﻿using System.Diagnostics;
+
+namespace TerminalChad.Themes;
 
 internal class ThemeLoader
 {

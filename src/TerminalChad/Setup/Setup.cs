@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics;
 using TerminalChad.Themes;
 
 namespace TerminalChad.CLI.Setup;
@@ -12,6 +13,7 @@ internal class Setup
 
     public void Init()
     {
+        InstallFonts();
         CreateFolders();
         ModifyPowershellConfig();
 
@@ -22,6 +24,20 @@ internal class Setup
         loader.LoadTheme("default");
 
         Console.WriteLine("Successfully Setup. Please start a new instance of Powershell Terminal for certain changes to take place \n");
+    }
+
+    private void InstallFonts()
+    {
+        var info = new ProcessStartInfo()
+        {
+            FileName = $@"{_baseDir}\Fonts\FontReg.exe",
+            Arguments = "/copy",
+            UseShellExecute = false,
+            WindowStyle = ProcessWindowStyle.Hidden
+
+        };
+
+        Process.Start(info);
     }
 
     private void CreateFolders()
