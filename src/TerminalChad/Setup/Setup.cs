@@ -43,9 +43,34 @@ internal class Setup
 
     private void ModifyPowershellConfig()
     {
-        var PowerhellConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\WindowsPowerShell\Microsoft.PowerShell_profile.ps1";
-        string writeText = $"invoke-expression -Command \"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1\"";
-        File.WriteAllText(PowerhellConfigFile, writeText);
+        try
+        {
+            CreatePowershellConfig();
+            // This is prob not needed
+            for (int i = 0; i < 10; i++)
+            {
+                var PowerhellConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\WindowsPowerShell\Microsoft.PowerShell_profile.ps1";
+                string writeText = $"invoke-expression -Command \"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1\"";
+                File.WriteAllText(PowerhellConfigFile, writeText);
+            }
+        }catch { }
+    }
+
+    private void CreatePowershellConfig()
+    {
+        var PowershellFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\WindowsPowerShell\";
+        var PowershellConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\WindowsPowerShell\Microsoft.PowerShell_profile.ps1";
+
+        if (!Directory.Exists(PowershellFolder)) Directory.CreateDirectory(PowershellFolder);
+        if (!File.Exists(PowershellConfigFile)) File.Create(PowershellConfigFile);
+
+        StreamWriter sw = new StreamWriter(PowershellConfigFile);
+        try
+        {
+            sw.Write($"invoke-expression -Command \"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1\"");
+            sw.Write($"invoke-expression -Command \"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1\"");
+        }
+        catch { } finally { sw.Close(); }
     }
 
     private void UpdateLocalThemes()
