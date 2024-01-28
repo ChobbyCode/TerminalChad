@@ -1,6 +1,14 @@
 <h1 align="center">Terminal Chad</h1>
 <h6 align="center">Making your terminal giga again</h6>
 
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/cdf6a6fc-43d4-4405-9130-e4f2ac88f06d" alt="drawing" width="49%"> 
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/ba39e2e6-047b-4138-b328-201f33a91a5a" alt="drawing" width="49%">
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/2a409b0a-dc55-4d8c-8f09-2f1291d7a82d" alt="drawing" width="98%">
+
+
+>>> ###### Images Subject To Change
+
+
 ## Indexes 
 
 ## Features
@@ -20,8 +28,9 @@ winget install Microsoft.DotNet.SDK.8
 winget install JanDeDobbeleer.OhMyPosh
 winget install Neovim.Neovim
 ```
+You also require the base fonts, you can download them by clicking below. Just extract the zip file and select all the fonts, then right click and install. [Credits NerdFonts](https://www.nerdfonts.com/font-downloads)
 
->> You may need to manually install your [NerdFonts](https://www.nerdfonts.com)
+[Click here to download all the required nerd fonts in TerminalChad for the base themes](https://github.com/ChobbyCode/TerminalChad/raw/main/src/TerminalChad/Fonts/TerminalChad-Fonts.zip)
 
 ## Installing Application
 
