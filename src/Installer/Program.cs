@@ -50,6 +50,7 @@ namespace TerminalChad.Installer
                 // Download Latest Versions
                 FileDownloader fd = new FileDownloader();
                 fd.DownloadFiles(installDrive + @"\Program Files\TerminalChad\");
+                AddAsPath(installDrive + @"Program Files\TerminalChad\");
 
                 if (_dS)
                 {
@@ -216,6 +217,16 @@ namespace TerminalChad.Installer
 
             // Save the shortcut:
             shorcut.Save();
+        }
+
+        private static void AddAsPath(string location)
+        {
+            var name = "PATH";
+            var scope = EnvironmentVariableTarget.Machine; // or User
+            var oldValue = Environment.GetEnvironmentVariable(name, scope);
+            if (oldValue.Contains($@";{location}")) return;
+            var newValue = oldValue + $@";{location}";
+            Environment.SetEnvironmentVariable(name, newValue, scope);
         }
 
     }
