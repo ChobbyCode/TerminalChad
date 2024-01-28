@@ -14,15 +14,18 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 
 ## Dependecies
 
-#### Required
-- Nerd Font [(Here is the required one for the default theme)](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Terminus.zip)
-- Powershell + Windows Terminal
-- [Dotnet 8.0 RunTime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.101-windows-x64-installer)
-- [Oh My Posh](ms-windows-store://pdp/?productid=XP8K0HKJFRXGCK)
+Copy and paste the following commands into powershell to install all the dependecies:
+```
+winget install Microsoft.DotNet.SDK.8
+winget install JanDeDobbeleer.OhMyPosh
+winget install Neovim.Neovim
+```
+
+>> You may need to manually install your [NerdFonts](https://www.nerdfonts.com)
 
 ## Installing Application
 
-## New
+## Via Installer
 
 ### 0. Run This Command
 
@@ -55,7 +58,7 @@ There are several themes included in TerminalChad, however you can make your own
 
 [Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
 
-## Old
+## Non-install-supported Platforms
 
 >> This is for non installer supported platforms
 
