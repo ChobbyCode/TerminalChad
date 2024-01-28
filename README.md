@@ -14,12 +14,51 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 
 ## Dependecies
 
-#### Required
-- Nerd Font [(Here is the required one for the default theme)](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Terminus.zip)
-- Powershell + Windows Terminal
-- [Dotnet 8.0 RunTime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.101-windows-x64-installer)
+Copy and paste the following commands into powershell to install all the dependecies:
+```
+winget install Microsoft.DotNet.SDK.8
+winget install JanDeDobbeleer.OhMyPosh
+winget install Neovim.Neovim
+```
+
+>> You may need to manually install your [NerdFonts](https://www.nerdfonts.com)
 
 ## Installing Application
+
+## Via Installer
+
+### 0. Run This Command
+
+This command is required to be run as by default your system does not have a $Profile folder
+```
+New-Item -Path $profile -Type File -Force
+```
+
+### 1. Download Instaler
+
+Navigate to the releases page and download your selected instaler. Then run the instaler, follow the provided instructions.
+
+### 2. Setup TerminalChad
+
+Once you have installed TerminalChad, we next need to enable it. This is easily done by typing the following command in Windows Terminal:
+```bash
+TerminalChad setup
+```
+
+### 3. Selecting a Theme
+
+To select a theme just type TerminalChad theme, this will give you a list themes.
+We can then type the name of the theme after the command i.e.
+```bash
+terminalchad theme
+terminalchad theme retro-clean
+```
+
+There are several themes included in TerminalChad, however you can make your own:
+
+[Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
+
+## Non-install-supported Platforms
 
 >> This is for non installer supported platforms
 
