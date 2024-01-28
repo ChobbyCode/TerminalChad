@@ -24,6 +24,13 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 
 ## New
 
+### 0. Run This Command
+
+This command is required to be run as by default your system does not have a $Profile folder
+```
+New-Item -Path $profile -Type File -Force
+```
+
 ### 1. Download Instaler
 
 Navigate to the releases page and download your selected instaler. Then run the instaler, follow the provided instructions.
