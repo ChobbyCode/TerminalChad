@@ -8,11 +8,6 @@
 - Reworks look of Powershell
 - Customisable startup message
 
-### Also included with Terminal Chad (If the install script works as intended)
-- [NeoVim](https://neovim.io)
-- [NvChad](https://nvchad.com)
-- [Zig 'The Chad Language'](https://ziglang.org)
-
 ## Installation
 
 TerminalChad has a very simple way of installing itself. All you require is git, a nerd font and powershell. Run all the commands in powershell. If you have any issues, please build the app from scratch and report it in the issues tab.
@@ -20,37 +15,41 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 ## Dependecies
 
 #### Required
-- Nerd Font (any will do)
+- Nerd Font [(Here is the required one for the default theme)](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Terminus.zip)
 - Powershell + Windows Terminal
-- Git
+- [Dotnet 8.0 RunTime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.101-windows-x64-installer)
 
-#### Extras
-- Some random file editor (neovim recommended)
-- Zig (only if building)
+## Installing Application
 
-## Quick Install
+>> This is for non installer supported platforms
 
-#### 1. Clone git repo
+### 1. Clone Repository
 
-```powershell
-git clone "https://github.com/ChobbyCode/TerminalChad.git" %USERPROFILE%/appdata/roaming/TerminalChad/ --depth 1
+Clone the following repository using git or download manually
+
+```git
+git clone "https://github.com/ChobbyCode/TerminalChad.git" --depth 1
 ```
 
-#### 2. Setup $Profile for usage 
+### 2. Build Application
 
-Open '$Profile' in prefered editor.
-
-You can type this in powershell to get the location to the folder.
-```powershell
-$Profile
-```
-```powershell
-nvim $Profile // Open in NeoVim
-code $Profile // Open in VSCode
+Navigate to the file "src/TerminalChad/TerminalChad.csproj" and open in Visual Studio or prefered editor. Build the application.
+You can also build from command line.
+```bash
+cd src/TerminalChad/
+dotnet build
 ```
 
-Add the following commands to the '$Profile' file:
-```powershell
-powershell -noprofile -noexit -command "invoke-expression'. ''"%USERPROFILE%/appdata/roaming/TerminalChad/profile.ps1"''' "
+### 3. Run from command line
+
+>> Note this may not work if the application isn't added to the System Path Variable, application will do this automatically in the future
+
+Run the following command from command line to see if the application is installed & setup correctly
+```bash
+terminalchad version
 ```
 
+Then if it is installed we can run the following command, follow instructions from app from here:
+```bash
+terminalchad setup
+```
