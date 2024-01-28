@@ -46,8 +46,7 @@ terminalchad theme retro-clean
 
 There are several themes included in TerminalChad, however you can make your own:
 
->> This is yet to be made
-[Click here to view how to make your own theme]()
+[Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
 
 ## Old
 
