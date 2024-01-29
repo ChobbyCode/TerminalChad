@@ -43,9 +43,9 @@ This command is required to be run as by default your system does not have a $Pr
 New-Item -Path $profile -Type File -Force
 ```
 
-### 1. Download Instaler
+### 1. Download Installer
 
-Navigate to the releases page and download your selected instaler. Then run the instaler, follow the provided instructions.
+Navigate to the releases page and download your selected Installer. Then run the Installer, follow the provided instructions.
 
 ### 2. Setup TerminalChad
 
@@ -108,3 +108,9 @@ Then if it is installed we can run the following command, follow instructions fr
 ```bash
 terminalchad setup
 ```
+
+
+## ToDo List
+
+- [ ] Download Custom Themes
+- [ ] Automatic Dependency Installation
