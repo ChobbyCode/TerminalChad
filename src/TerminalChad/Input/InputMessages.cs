@@ -15,6 +15,6 @@ internal class InputMessages
 
     public static void PrintVersion()
     {
-        Console.WriteLine("TerminalChad v0.1.0");
+        Console.WriteLine($"TerminalChad {Program.version}");
     }
 }
