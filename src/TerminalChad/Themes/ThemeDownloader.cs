@@ -17,6 +17,7 @@ public class ThemeDownloader
 
         string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 
+        // Temp directories & stuff
         if (Directory.Exists(baseDir + @"\tmp\")) Directory.Delete(baseDir + @"\tmp\", true);
         if (Directory.Exists(baseDir + @"\tmp\files\")) Directory.Delete(baseDir + @"\tmp\files\", true);
 
