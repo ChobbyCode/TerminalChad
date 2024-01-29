@@ -64,8 +64,8 @@ TerminalChad setup
 To select a theme just type TerminalChad theme, this will give you a list themes.
 We can then type the name of the theme after the command i.e.
 ```bash
-terminalchad theme
-terminalchad theme retro-clean
+terminalchad theme set
+terminalchad theme set retro
 ```
 
 There are several themes included in TerminalChad, however you can make your own:
