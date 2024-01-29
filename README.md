@@ -11,10 +11,15 @@
 
 ## Indexes 
 
-## Features
+## Features (v0.1.1)
 
-- Reworks look of Powershell
-- Customisable startup message
+- Configurable themes for powershell
+- Theme Switcher
+- Dedicated Installer
+- Ease Of Use
+- Reworks Look & Feel Of Powershell
+- Highly Customisable
+- Package-manger-like Installer For User Themes
 
 ## Installation
 
@@ -59,8 +64,8 @@ TerminalChad setup
 To select a theme just type TerminalChad theme, this will give you a list themes.
 We can then type the name of the theme after the command i.e.
 ```bash
-terminalchad theme
-terminalchad theme retro-clean
+terminalchad theme set
+terminalchad theme set retro
 ```
 
 There are several themes included in TerminalChad, however you can make your own:
