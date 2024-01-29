@@ -11,10 +11,15 @@
 
 ## Indexes 
 
-## Features
+## Features (v0.1.1)
 
-- Reworks look of Powershell
-- Customisable startup message
+- Configurable themes for powershell
+- Theme Switcher
+- Dedicated Installer
+- Ease Of Use
+- Reworks Look & Feel Of Powershell
+- Highly Customisable
+- Package-manger-like Installer For User Themes
 
 ## Installation
 
