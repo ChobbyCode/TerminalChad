@@ -89,7 +89,7 @@ internal class Setup
             {
                 file.CopyTo(Path.Combine(target.FullName, file.Name), true);
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Success | {file.Name}");
+                Console.WriteLine($"Success | {file.Directory.Name}.{file.Name}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
             catch

@@ -26,24 +26,64 @@ internal class InputParser
                 setup.Init();
                 break;
             case "theme":
-                ThemeLoader loader = new ThemeLoader();
-                if(input.Length > 1)
+                ThemeSwitch(input);
+                break;
+            default:
+                InputMessages.PrintBasic();
+                break;
+        }
+    }
+
+    private void ThemeSwitch(string[] input)
+    {
+        if (2 > input.Length)
+        {
+            Console.WriteLine("Please provide an operator | 'set' or 'download'");
+            return;
+        }
+        switch (input[1])
+        {
+            case "set":
+                if (input.Length > 2)
                 {
-                    loader.LoadTheme(input[1]);
+                    ThemeLoader loader = new();
+                    loader.LoadTheme(input[2]);
                 }
                 else
                 {
                     Console.WriteLine("Please Provide A Theme. Below are the installed themes: \n");
-                    foreach(string s in Directory.GetDirectories($"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Themes/"))
+                    foreach (string s in Directory.GetDirectories($"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Themes/"))
                     {
                         DirectoryInfo dI = new DirectoryInfo(s);
                         Console.WriteLine(dI.Name);
                     }
                 }
                 break;
-            default:
-                InputMessages.PrintBasic();
+            case "download":
+                if (input.Length > 3)
+                {
+                    if(input[4] == "-m")
+                    {
+                        ThemeDownloader loader = new();
+                        loader.DownloadThemeZip(input[2], input[3], true);
+                    }
+                    else
+                    {
+                        ThemeDownloader loader = new();
+                        loader.DownloadThemeZip(input[2], input[3]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please provide a github repository to download the theme from. It will download from the main branch.");
+                    Console.WriteLine("A name for the theme to be saved as must be provided as the second parameter. \n");
+                    Console.WriteLine("Example \n");
+                    Console.WriteLine("terminalchad download chobbycode.terminalchad themes");
+                }
                 break;
-        }
+            default:
+                Console.WriteLine("No.");
+                break;
+        }        
     }
 }
