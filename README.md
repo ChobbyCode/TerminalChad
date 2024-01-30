@@ -29,7 +29,6 @@ TerminalChad has a very simple way of installing itself. All you require is git,
 
 Copy and paste the following commands into powershell to install all the dependecies:
 ```
-winget install Microsoft.DotNet.SDK.8
 winget install JanDeDobbeleer.OhMyPosh
 winget install Neovim.Neovim
 ```
