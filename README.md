@@ -11,7 +11,7 @@
 
 ## Indexes 
 
-## Features (v0.1.1)
+## Features (v0.1.2)
 
 - Configurable themes for powershell
 - Theme Switcher
