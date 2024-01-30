@@ -17,6 +17,7 @@ internal class InputParser
         switch(input[0])
         {
             case "help":
+                InputMessages.PrintBasic();
                 break;
             case "version":
                 InputMessages.PrintVersion();
@@ -80,6 +81,10 @@ internal class InputParser
                     Console.WriteLine("Example \n");
                     Console.WriteLine("terminalchad download chobbycode.terminalchad themes");
                 }
+                break;
+            case "reload":
+                ThemeDownloader downloader = new();
+                downloader.DownloadThemeZip("chobbycode.terminalchadthemes", "/", true);
                 break;
             default:
                 Console.WriteLine("No.");
