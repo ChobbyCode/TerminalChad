@@ -3,6 +3,7 @@
 using IWshRuntimeLibrary;
 using TerminalChadInstaller;
 using System.Diagnostics;
+using Installer;
 
 namespace TerminalChad.Installer
 {
@@ -46,6 +47,10 @@ namespace TerminalChad.Installer
                     Directory.CreateDirectory(installDrive + @"\Program Files\TerminalChad\");
                 bool _dS = AskDesktopShortcut();
                 bool _sS = AskStartMenuShortcut();
+
+                Console.WriteLine("Installing Dotnet Core Library");
+                DotNetInstaller dotNetInstaller = new DotNetInstaller();
+                dotNetInstaller.InstallDotNet();
 
                 // Download Latest Versions
                 FileDownloader fd = new FileDownloader();
