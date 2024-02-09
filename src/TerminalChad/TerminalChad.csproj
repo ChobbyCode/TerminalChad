@@ -102,8 +102,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Profiles\" />
-  </ItemGroup>
-
 </Project>

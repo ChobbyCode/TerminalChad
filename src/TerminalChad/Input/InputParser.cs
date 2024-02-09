@@ -29,6 +29,8 @@ internal class InputParser
             case "theme":
                 ThemeSwitch(input);
                 break;
+            case "profile":
+                break;
             default:
                 InputMessages.PrintBasic();
                 break;

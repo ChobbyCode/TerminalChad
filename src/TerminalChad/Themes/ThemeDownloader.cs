@@ -15,7 +15,8 @@ public class ThemeDownloader
         if(master) path = "https://github.com/" + s[0] + "/" + s[1] + "/zipball/master";
         else path = "https://github.com/" + s[0] + "/" + s[1] + "/zipball/main";
 
-        string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+        // I can't be bothered to rename so you're going to have to live with baseDir
+        string baseDir = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/";
 
         // Temp directories & stuff
         if (Directory.Exists(baseDir + @"\tmp\")) Directory.Delete(baseDir + @"\tmp\", true);
