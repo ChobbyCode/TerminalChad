@@ -23,7 +23,14 @@ namespace TerminalChad.Installer
             }
             catch (Exception ex)
             {
-                UserInstall();
+                if(isInstall()) UserInstall();
+                else
+                {
+                    string installDrive = GetInstallDrive();
+
+                    Uninstaller uninstaller = new Uninstaller();
+                    uninstaller.Uninstall(installDrive);
+                }
             }
             Console.ReadLine();
         }
@@ -73,6 +80,22 @@ namespace TerminalChad.Installer
                 Console.WriteLine(ex);
             }
             Console.ReadLine();
+        }
+
+        public static bool isInstall()
+        {
+            bool correct = false;
+            string answer = "";
+            while (!correct)
+            {
+                Console.WriteLine();
+                Console.Write("Would you like to install the application or uninstall the application? (install/uninstall): ");
+                answer = Console.ReadLine();
+                if (answer.ToLower() == "uninstall" || answer.ToLower() == "install") correct = true;
+                else Console.WriteLine("Please Enter A Valid Answer");
+            }
+            if (answer.ToLower() == "install") return true;
+            else return false;
         }
 
         public static bool AskDesktopShortcut()
@@ -131,7 +154,8 @@ namespace TerminalChad.Installer
         public static string GetInstallDrive()
         {
             Console.WriteLine("Please Select An Install Drive From Below:");
-            Console.WriteLine(@"The Application Will Be Installed On '[Drive]:\Program Files\TerminalChad\'");
+            Console.WriteLine(@"The Application Will Be Found On '[Drive]:\Program Files\TerminalChad\'");
+            Console.WriteLine(@"Note: 'If you are uninstalling, please select the drive that you have installed it on.'");
             Console.WriteLine();
 
             DriveInfo[] allDrives = DriveInfo.GetDrives();
