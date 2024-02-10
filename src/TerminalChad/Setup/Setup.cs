@@ -1,5 +1,6 @@
 ﻿
 using System.Diagnostics;
+using TerminalChad.Setup;
 using TerminalChad.Themes;
 
 namespace TerminalChad.CLI.Setup;
@@ -13,6 +14,10 @@ internal class Setup
 
     public void Init()
     {
+        DirectorySetup st = new DirectorySetup();
+        st.CreateDirectories();
+        Console.ReadLine();
+
         CreateFolders();
         ModifyPowershellConfig();
 
