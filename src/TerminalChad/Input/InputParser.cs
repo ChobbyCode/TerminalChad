@@ -30,11 +30,17 @@ internal class InputParser
                 ThemeSwitch(input);
                 break;
             case "profile":
+                ProfileSwitch(input);
                 break;
             default:
                 InputMessages.PrintBasic();
                 break;
         }
+    }
+
+    private void ProfileSwitch(string[] input)
+    {
+
     }
 
     private void ThemeSwitch(string[] input)

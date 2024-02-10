@@ -1,13 +1,12 @@
 ﻿
 using System.Diagnostics;
 using TerminalChad.Profiles.Installer.Scripts;
+using Newtonsoft.Json;
 
 namespace TerminalChad.Profiles.Installer;
 
 public class Installer
 {
-    private string ScriptsFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/";
-
     public void DownloadApplication(SupportedApplications application)
     {
         // First create scripts just incase they don't exist
@@ -17,9 +16,30 @@ public class Installer
         switch (application)
         {
             case SupportedApplications.GIT:
-                RunPSScript($"{ScriptsFolder}git.ps1");
+                if (isInstallable(application)) ; /*RunPSScript($"{GlobalVariables.ScriptsFolder}git.ps1");*/
                 break;
         }
+    }
+
+    private bool isInstallable(SupportedApplications application)
+    {
+        bool returnValue = false;
+
+        ApplicationInstallDateConfig? installConfig = JsonConvert.DeserializeObject<ApplicationInstallDateConfig>(File.ReadAllText(GlobalVariables.ApplicationInstallConfigFile));
+        if (installConfig == null) return false;
+
+        switch (application)
+        {
+            case SupportedApplications.GIT:
+                if (installConfig.GitLastInstallTime.AddDays(1) <= DateTime.Now) returnValue = true;
+                installConfig.GitLastInstallTime = DateTime.Now;
+                break;
+        }
+
+        string json = JsonConvert.SerializeObject(installConfig);
+        File.WriteAllText(GlobalVariables.ApplicationInstallConfigFile, json);
+
+        return returnValue;
     }
 
     public void RunPSScript(string path)
