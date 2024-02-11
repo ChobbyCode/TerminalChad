@@ -24,12 +24,13 @@ internal class Setup
         if (!Directory.Exists($"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/")) {
             Directory.CreateDirectory($"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/");
         }
-        ThemeLoader loader = new ThemeLoader();
-        loader.LoadTheme("default");
-        Console.WriteLine("Installing Themes");
 
         ThemeDownloader downloader = new();
         downloader.DownloadThemeZip("chobbycode.terminalchadthemes", "/", true);
+
+        ThemeLoader loader = new ThemeLoader();
+        loader.LoadTheme("default");
+        Console.WriteLine("Installing Themes");
 
         Console.WriteLine("Successfully Setup. Please start a new instance of Powershell Terminal for certain changes to take place \n");
     }
@@ -40,10 +41,12 @@ internal class Setup
         CreateFolder(_themeFolder);
         CreateFolder(_activeFolder);
 
-        DirectoryInfo source = new DirectoryInfo($"{_baseDir}/Themes");
+        // Redundant as it downloads externally now
+
+        /*DirectoryInfo source = new DirectoryInfo($"{_baseDir}/Themes");
         DirectoryInfo target = new DirectoryInfo(_themeFolder);
 
-        CopyFiles(source, target);
+        CopyFiles(source, target);*/
     }
 
     private void CreateFolder(string path)

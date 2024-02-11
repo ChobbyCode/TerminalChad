@@ -12,7 +12,7 @@ namespace TerminalChad.CLI;
 
 public class Program
 {
-    public static string version = "patch-v0.2.1";
+    public static string version = "patch-v0.2.3";
 
     public static void Main(string[] args)
     {
