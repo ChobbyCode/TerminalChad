@@ -11,7 +11,7 @@
 
 ## Indexes 
 
-## Features (v0.1.2)
+## Features (v0.2.2)
 
 - Configurable themes for powershell
 - Theme Switcher
@@ -40,14 +40,14 @@ You also require the base fonts, you can download them by clicking below. Just e
 
 ## Via Installer
 
-### 0. Run This Command
+### 1. Run This Command
 
 This command is required to be run as by default your system does not have a $Profile folder
 ```
 New-Item -Path $profile -Type File -Force
 ```
 
-### 1. Download Installer
+### 2. Download Installer
 
 Navigate to the releases page and download your selected Installer. Then run the Installer, follow the provided instructions.
 
@@ -71,47 +71,9 @@ There are several themes included in TerminalChad, however you can make your own
 
 [Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
 
-## Non-install-supported Platforms
+## Uninstall
 
->> This is for non installer supported platforms
-
-### 0. Run This Command
-
-Breaking News: Run this command or stuff breaks
-```
-New-Item -Path $profile -Type File -Force
-```
-
-### 1. Clone Repository
-
-Clone the following repository using git or download manually
-
-```git
-git clone "https://github.com/ChobbyCode/TerminalChad.git" --depth 1
-```
-
-### 2. Build Application
-
-Navigate to the file "src/TerminalChad/TerminalChad.csproj" and open in Visual Studio or prefered editor. Build the application.
-You can also build from command line.
-```bash
-cd src/TerminalChad/
-dotnet build
-```
-
-### 3. Run from command line
-
->> Note this may not work if the application isn't added to the System Path Variable, application will do this automatically in the future
-
-Run the following command from command line to see if the application is installed & setup correctly
-```bash
-terminalchad version
-```
-
-Then if it is installed we can run the following command, follow instructions from app from here:
-```bash
-terminalchad setup
-```
+To uninstall the application, you can download the installer and select the 'Uninstall' option instead. Make sure you pass in the drive you installed TerminalChad on.
 
 
 ## ToDo List
