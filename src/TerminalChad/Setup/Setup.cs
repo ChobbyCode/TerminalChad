@@ -16,7 +16,6 @@ internal class Setup
     {
         DirectorySetup st = new DirectorySetup();
         st.CreateDirectories();
-        Console.ReadLine();
 
         CreateFolders();
         ModifyPowershellConfig();
