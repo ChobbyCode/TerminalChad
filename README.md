@@ -71,6 +71,14 @@ There are several themes included in TerminalChad, however you can make your own
 
 [Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
 
+## Updating
+
+To update the application you can run the following command:
+>> ###### The true is required as that puts the application in automatic mode
+```
+TerminalChadUpdate true
+```
+
 ## Uninstall
 
 To uninstall the application, you can download the installer and select the 'Uninstall' option instead. Make sure you pass in the drive you installed TerminalChad on.
