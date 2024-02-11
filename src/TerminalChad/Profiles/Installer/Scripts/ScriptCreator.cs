@@ -8,6 +8,11 @@ public class ScriptCreator
         DeleteAllScripts();
 
         CreateWingetInstallScript("git.ps1", "--id Git.Git -e --source winget");
+        CreateWingetInstallScript("firefox.ps1", "-e --id Mozilla.Firefox");
+        CreateWingetInstallScript("neovim.ps1", "--id=Neovim.Neovim  -e");
+        CreateWingetInstallScript("visualstudios.ps1", "--id Microsoft.VisualStudio.2022.Community");
+        CreateWingetInstallScript("vscode.ps1", "-e --id Microsoft.VisualStudioCode");
+        CreateWingetInstallScript("dotnet.ps1", "winget install Microsoft.DotNet.SDK.8");
     }
 
     public void DeleteAllScripts()

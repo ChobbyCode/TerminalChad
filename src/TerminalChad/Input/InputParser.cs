@@ -1,4 +1,5 @@
 ﻿
+using TerminalChad.Models.Profiles;
 using TerminalChad.Themes;
 
 namespace TerminalChad.CLI.Input;
@@ -40,14 +41,43 @@ internal class InputParser
 
     private void ProfileSwitch(string[] input)
     {
-
+        if (2 > input.Length)
+        {
+            Console.WriteLine("Please provide an operator | 'set' or 'download'");
+            return;
+        }
+        switch (input[1])
+        {
+            case "set":
+                if (input.Length > 2)
+                {
+                    ProfileLoader loader = new ProfileLoader();
+                    loader.LoadProfile(input[2]);
+                }
+                else
+                {
+                    Console.WriteLine("Please Provide A Theme. Below are the installed themes: \n");
+                    foreach (string s in Directory.GetDirectories($"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Profiles/"))
+                    {
+                        DirectoryInfo dI = new DirectoryInfo(s);
+                        Console.WriteLine(dI.Name);
+                    }
+                }
+                break;
+            case "download":
+                Console.WriteLine("Unimplemented");
+                break;
+            default:
+                Console.WriteLine("No.");
+                break;
+        }
     }
 
     private void ThemeSwitch(string[] input)
     {
         if (2 > input.Length)
         {
-            Console.WriteLine("Please provide an operator | 'set' or 'download'");
+            Console.WriteLine("Please provide an operator | 'set' or 'download' or 'reload'");
             return;
         }
         switch (input[1])

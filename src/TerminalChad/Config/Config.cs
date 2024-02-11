@@ -11,7 +11,8 @@ public class Config
 {
     public string StartDirectory { get; set; } = "~";
     public List<String> StartApplications { get; set; } = new List<String>();
-    public bool forceLSPs { get; set; }
+    public bool ForceLSPs { get; set; }
+    public bool UsePlugins { get; set; }
 
     public void WriteConfig()
     {
