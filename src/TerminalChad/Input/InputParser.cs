@@ -1,5 +1,5 @@
 ﻿
-using TerminalChad.Models.Profiles;
+using TerminalChad.Profiles;
 using TerminalChad.Themes;
 
 namespace TerminalChad.CLI.Input;
@@ -33,8 +33,13 @@ internal class InputParser
             case "profile":
                 ProfileSwitch(input);
                 break;
+            case "update":
+                Console.WriteLine("Please write the command 'TerminalChadUpdate true' in full. Do not put 'terminalchad TerminalChadUpdat...', just the first command.");
+                break;
             default:
-                InputMessages.PrintBasic();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"'{input[0]}' is not recognised as a TerminalChad command, or TerminalChad extension command");
+                Console.ForegroundColor = ConsoleColor.White;
                 break;
         }
     }

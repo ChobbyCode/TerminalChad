@@ -19,7 +19,7 @@ namespace TerminalChad.Installer
 
             try
             {
-                if (args[0] == "true") AutoUpdate(args[1]);
+                if (args[0] == "true") AutoUpdate(AppDomain.CurrentDomain.BaseDirectory);
             }
             catch (Exception ex)
             {
@@ -32,7 +32,6 @@ namespace TerminalChad.Installer
                     uninstaller.Uninstall(installDrive);
                 }
             }
-            Console.ReadLine();
         }
 
         public static void AutoUpdate(string installDrive)
@@ -40,7 +39,8 @@ namespace TerminalChad.Installer
             Console.WriteLine("Installing");
             FileDownloader fd = new FileDownloader();
             fd.DownloadFiles(installDrive);
-            Console.ReadLine();
+            Console.WriteLine("Install Complete! This window will automatically close after 2.487 seconds.");
+            Thread.Sleep(2487);
         }
 
         public static void UserInstall()

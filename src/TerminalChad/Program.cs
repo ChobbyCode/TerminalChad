@@ -2,11 +2,7 @@
 
 using TerminalChad.CLI.Input;
 using TerminalChad.Profiles;
-using TerminalChad.Profiles.Installer;
-using TerminalChad.Profiles.Installer.Scripts;
 using Newtonsoft.Json;
-using TerminalChad.Models.Profiles;
-using TerminalChad.Config;
 
 namespace TerminalChad.CLI;
 
@@ -31,6 +27,21 @@ public class Program
 
         InputParser parser = new InputParser();
         parser.ParseInput(args);
+
+        /*ConfigurationCopyAddressFile file = new ConfigurationCopyAddressFile()
+        {
+            Copy =
+            {
+                new Models.Profiles.Models.ConfigurationCopyAddressSingular()
+                {
+                    target = "%appdata%/TerminalChad",
+                    source = "~/Desktop"
+                }
+            }
+        };
+
+        ConfigurationLoader configurationLoader = new ConfigurationLoader();
+        configurationLoader.LoadConfigurations(file);*/
     }
 
     public static void WriteConfig()
