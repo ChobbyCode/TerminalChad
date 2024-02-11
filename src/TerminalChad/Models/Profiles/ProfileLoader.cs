@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using TerminalChad.Models.Profiles.Models;
 using TerminalChad.Profiles.Installer;
+using TerminalChad.Themes;
 
 namespace TerminalChad.Models.Profiles;
 
@@ -27,6 +28,20 @@ public class ProfileLoader
     private void InstallProfile()
     {
         InstallApplications();
+        SetTheme();
+    }
+
+    private void SetTheme()
+    {
+        ThemeGet? themeGet = JsonConvert.DeserializeObject<ThemeGet>(
+            File.ReadAllText($"{ProfileFolder}{_profile}/theme.json"));
+        if (themeGet == null) return;
+
+        ThemeDownloader themeDownloader = new ThemeDownloader();
+        themeDownloader.DownloadThemeZip(themeGet.GetURI, themeGet.SaveName, true);
+
+        ThemeLoader themeLoader = new ThemeLoader();
+        themeLoader.LoadTheme(themeGet.ApplyName);
     }
 
     private void InstallApplications()
