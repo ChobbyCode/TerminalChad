@@ -91,6 +91,9 @@ Before discussing the checklist, we should probably discuss what is the goal of 
 The goal of TerminalChad is to remove the annoyance of setting up new computers with weird configuration and applications: when I was setting up neovim, it took me a whole 2 days: so I plan to change that to under 5 minutes.
 
 - [x] Download Custom Themes
-- [ ] Automatic Dependency Installation
+- [x] Automatic Dependency Installation
 - [ ] Package Manager
 - [ ] Install all required tools on new computers
+- [ ] Mass Configuration
+
+View more on the [trello board](https://trello.com/b/IuorHvB0/terminalchad)
