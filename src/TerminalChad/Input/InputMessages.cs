@@ -12,7 +12,7 @@ internal class InputMessages
         Console.WriteLine("     version     Prints the version of application");
         Console.WriteLine("     setup       Runs the setup script of the application\n");
         Console.WriteLine("     theme       Change your current theme of TerminalChad");
-        Console.WriteLine("     profile     Insert Command Text Here");
+        //Console.WriteLine("     profile     Profiles allow easy mass-swapping of config files on a range of applications");
     }
 
     public static void PrintVersion()
