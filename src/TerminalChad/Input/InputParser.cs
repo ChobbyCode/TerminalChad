@@ -36,6 +36,12 @@ internal class InputParser
             case "update":
                 Console.WriteLine("Please write the command 'TerminalChadUpdate true' in full. Do not put 'terminalchad TerminalChadUpdat...', just the first command.");
                 break;
+            case "controls":
+                InputMessages.PrintControls();
+                break;
+            case "credits":
+                InputMessages.PrintCredits();
+                break;
             default:
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"'{input[0]}' is not recognised as a TerminalChad command, or TerminalChad extension command");
