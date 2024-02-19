@@ -11,7 +11,7 @@
 
 ## Indexes 
 
-## Features (v0.2.2)
+## Features (v0.2.31)
 
 - Configurable themes for powershell
 - Theme Switcher
@@ -20,19 +20,17 @@
 - Reworks Look & Feel Of Powershell
 - Highly Customisable
 - Package-manger-like Installer For User Themes
+- Updater
+
+## Experimental (for v0.2.31)
+
+- Profiles & Mass-Application Configuration
 
 ## Installation
 
 TerminalChad has a very simple way of installing itself. All you require is git, a nerd font and powershell. Run all the commands in powershell. If you have any issues, please build the app from scratch and report it in the issues tab.
 
-## Dependecies
-
-Copy and paste the following commands into powershell to install all the dependecies:
-```
-winget install JanDeDobbeleer.OhMyPosh
-winget install Neovim.Neovim
-```
-You also require the base fonts, you can download them by clicking below. Just extract the zip file and select all the fonts, then right click and install. [Credits NerdFonts](https://www.nerdfonts.com/font-downloads)
+## Required Fonts
 
 [Click here to download all the required nerd fonts in TerminalChad for the base themes](https://github.com/ChobbyCode/TerminalChad/raw/main/src/TerminalChad/Fonts/TerminalChad-Fonts.zip)
 
@@ -93,6 +91,9 @@ Before discussing the checklist, we should probably discuss what is the goal of 
 The goal of TerminalChad is to remove the annoyance of setting up new computers with weird configuration and applications: when I was setting up neovim, it took me a whole 2 days: so I plan to change that to under 5 minutes.
 
 - [x] Download Custom Themes
-- [ ] Automatic Dependency Installation
+- [x] Automatic Dependency Installation
 - [ ] Package Manager
 - [ ] Install all required tools on new computers
+- [ ] Mass Configuration
+
+View more on the [trello board](https://trello.com/b/IuorHvB0/terminalchad)
