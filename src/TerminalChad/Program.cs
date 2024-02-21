@@ -8,14 +8,20 @@ namespace TerminalChad.CLI;
 
 public class Program
 {
-    public static string version = "patch-v0.2.3";
+    // 0.3.0 is the version we are releasing with the config, do not update
+    public static string version = "release-v0.3.0";
 
     public static void Main(string[] args)
     {
         // Config Files Not Implemented Yet
 
-        //TerminalChad.Config.Config cfg = new TerminalChad.Config.Config();
-        //cfg.WriteConfig();
+        // yml config file
+        TerminalChad.Config.Config cfg = new TerminalChad.Config.Config();
+        cfg.ReadConfig();
+        cfg.WriteConfig();
+        cfg.RunConfigInfo();
+
+        // Last application install dates | Not Used, but don't remove
         //WriteConfig();
 
         //ProfileLoader pl = new ProfileLoader();
