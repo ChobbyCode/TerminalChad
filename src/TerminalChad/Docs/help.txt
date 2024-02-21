@@ -1,0 +1,37 @@
+By using this product and reading this document, you agree to the License Agreement (MIT).
+This document was last updated on the 21/02/24
+
+Please create an issue with any consistance with this document.
+
+
+To use TerminalChad, you must have Windows Terminal installed, and be using Windows Powershell.
+
+
+Welcome to TerminalChad!
+
+TerminalChad is a Windows Powershell Terminal extension, that allows for easier use of the base Windows Terminal.
+These features include:
+	- Themes
+	- Configuration
+	- And More
+
+To start with terminalchad, we must setup the application. This can be done with the 'TerminalChad setup' command. This creates the terminalchad directory in the appdata folder.
+
+Once you have setup TerminalChad, you should first see some changes on the interface. This would make everything look slightly different.
+
+Let's now set our own theme:
+
+We can do this with the 'TerminalChad theme set ....' command. Let's just type 'TerminalChad theme set' to see what happens. 
+
+As you see it gives up a list for what our themes are. For example, let's set the slick-dark theme. 'TerminalChad theme set slick-dark'
+
+We can download more commands by using the command 'TerminalChad theme download', then we can provide a github url. For example, let's download the base terminalchad themes, we type the username of the person, and then a dot with the name of the repo. 'TerminalChad theme download ChobbyCode.TerminalChadThemes'.
+
+If we want to redownload the base themes, we can type 'TerminalChad reload'
+
+
+If we want to update the application we can type 'TerminalChadUpdate'
+
+TerminalChad, Copyright (c) ChobbyCode 2024-Present, All Rights Reserved, MIT LICENSE. All Rights of TerminalChad are reserved by ChobbyCode, under the MIT License. 
+Windows Powershell, Copyright (c) Microsoft Corporation, All Rights Reserved.
+Windows Terminal, Copyright (c) Microsoft Corporation, All Rights Reserved.

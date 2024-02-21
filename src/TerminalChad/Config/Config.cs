@@ -45,8 +45,6 @@ public class Config
         }
         catch { }
         finally { sw.Close(); }
-
-        System.Console.WriteLine(yaml);
     }
 
     public void ReadConfig()
