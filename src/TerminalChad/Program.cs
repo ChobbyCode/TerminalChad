@@ -8,30 +8,39 @@ namespace TerminalChad.CLI;
 
 public class Program
 {
-    // 0.3.0 is the version we are releasing with the config, do not update
-    public static string version = "release-v0.3.0";
+    // 0.3.1 is the patch for the weird bug with the config file
+    public static string version = "patch-v0.3.1";
 
     public static void Main(string[] args)
     {
         // Config Files Not Implemented Yet
 
-        // yml config file
-        TerminalChad.Config.Config cfg = new TerminalChad.Config.Config();
-        cfg.ReadConfig();
-        cfg.WriteConfig();
-        cfg.RunConfigInfo();
+        // Come up with a better patch later
+        try
+        {
+            TerminalChad.Config.Config cfg = new TerminalChad.Config.Config();
+            cfg.ReadConfig();
+            cfg.WriteConfig();
+            cfg.RunConfigInfo();
+        }
+        catch
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("An error occurred whilst trying to read the config file. Please run the setup command to fix this.\n");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
 
-        // Last application install dates | Not Used, but don't remove
-        //WriteConfig();
+            // Last application install dates | Not Used, but don't remove
+            //WriteConfig();
 
-        //ProfileLoader pl = new ProfileLoader();
-        //pl.LoadProfile("default");
+            //ProfileLoader pl = new ProfileLoader();
+            //pl.LoadProfile("default");
 
-        //Console.WriteLine(version);
-        //Installer installer = new Installer();
-        //installer.DownloadApplication(SupportedApplications.GIT);
+            //Console.WriteLine(version);
+            //Installer installer = new Installer();
+            //installer.DownloadApplication(SupportedApplications.GIT);
 
-        InputParser parser = new InputParser();
+            InputParser parser = new InputParser();
         parser.ParseInput(args);
 
         /*ConfigurationCopyAddressFile file = new ConfigurationCopyAddressFile()

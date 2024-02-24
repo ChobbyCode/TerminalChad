@@ -18,6 +18,15 @@ internal class InputMessages
         //Console.WriteLine("     profile     Profiles allow easy mass-swapping of config files on a range of applications");
     }
 
+    public static void HelpExtended()
+    {
+        var _HelpText = File.ReadAllLines($"{AppDomain.CurrentDomain.BaseDirectory}/Docs/help.txt");
+        foreach(var s in _HelpText)
+        {
+            Console.WriteLine(s);
+        }
+    }
+
     public static void PrintCredits()
     {
         Console.WriteLine($"TerminalChad {Program.version} (c) ChobbyCode 2024, All Rights Reserved, MIT License");

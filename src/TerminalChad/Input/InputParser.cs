@@ -18,7 +18,7 @@ internal class InputParser
         switch(input[0])
         {
             case "help":
-                InputMessages.PrintBasic();
+                InputMessages.HelpExtended();
                 break;
             case "version":
                 InputMessages.PrintVersion();
