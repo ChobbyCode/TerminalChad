@@ -110,4 +110,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Profiles\Configuration\" />
+  </ItemGroup>
+
 </Project>

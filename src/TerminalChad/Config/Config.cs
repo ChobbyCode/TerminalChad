@@ -81,7 +81,7 @@ public class Config
         List<string> _profileInformation = new List<string>();
         if (UseOldTitler == true) {
             _profileInformation = new List<string>(){
-                "$RunDirectory = Split-Path -Path $MyInvocation.MyCommand.Path -Parent",
+            "$RunDirectory = Split-Path -Path $MyInvocation.MyCommand.Path -Parent",
             "",
             "",
             "$ScreenWidth = (Get-Host).UI.RawUI.MaxWindowSize.Width",
@@ -96,14 +96,14 @@ public class Config
             "   Write-Host \"Terminal Chad Small Mode\"",
             "}",
             "",
-            "$ohmyposhLoc = $RunDirectory + \"\\src\\TerminalChad\\Config\\Posh\\config.json\"",
+            "$ohmyposhLoc = $RunDirectory + \"\\config.json\"",
             "oh-my-posh.exe init pwsh --config $ohmyposhLoc  | Invoke-Expression"
             };
         }else
         {
             var Profile = new List<string>(){
-            "",
-            "$ohmyposhLoc = $RunDirectory + \"\\src\\TerminalChad\\Config\\Posh\\config.json\"",
+            "$RunDirectory = Split-Path -Path $MyInvocation.MyCommand.Path -Parent",
+            "$ohmyposhLoc = $RunDirectory + \"\\config.json\"",
             "oh-my-posh.exe init pwsh --config $ohmyposhLoc  | Invoke-Expression",
             ""
             };
