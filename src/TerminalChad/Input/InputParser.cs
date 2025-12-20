@@ -1,5 +1,5 @@
 ﻿
-using TerminalChad.Profiles;
+//using TerminalChad.Profiles;
 using TerminalChad.Themes;
 
 namespace TerminalChad.CLI.Input;
@@ -62,8 +62,8 @@ internal class InputParser
             case "set":
                 if (input.Length > 2)
                 {
-                    ProfileLoader loader = new ProfileLoader();
-                    loader.LoadProfile(input[2]);
+                    //ProfileLoader loader = new ProfileLoader();
+                    //loader.LoadProfile(input[2]);
                 }
                 else
                 {
