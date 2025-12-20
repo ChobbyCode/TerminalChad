@@ -23,6 +23,9 @@ internal class InputParser
             case "version":
                 InputMessages.PrintVersion();
                 break;
+            case "which":
+                InputMessages.Which();
+                break;
             case "setup":
                 Setup.Setup setup = new();
                 setup.Init();

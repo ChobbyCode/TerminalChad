@@ -10,7 +10,8 @@ public class Program
 {
     // 0.3.1 is the patch for the weird bug with the config file
     // 0.3.2 is the patch for the weird bug with the config file and how it just resets everything
-    public static string version = "patch-v0.3.2";
+    // 0.3.3-2026 is a patch to fix a compiling issue, and to fix the start up text issue.
+    public static string version = "patch-v0.3.3-2026";
 
     public static void Main(string[] args)
     {
