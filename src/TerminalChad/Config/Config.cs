@@ -19,7 +19,7 @@ public class Config
     //public List<String> StartApplications { get; set; } = new List<String>();
     //public bool ForceLSPs { get; set; } = false;
     //public bool UsePlugins { get; set; } = false;
-    public bool UseOldTitler { get; set; } = false;
+    public bool UseOldTitler { get; set; } = true;
     public int minTitleWidth { get; set; } = 103;
 
     public void WriteConfig()
