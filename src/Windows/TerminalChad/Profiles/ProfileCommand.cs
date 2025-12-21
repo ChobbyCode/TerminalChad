@@ -20,6 +20,8 @@ public class ProfileCommand {
      * terminalchad profile -m [PROFILE_NAME] -b    Reopens the profile builder
      */
 
+    // This will need to be written in C++. I hate c#. 
+
     public void Parse(string[] args) {
 
     }
