@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 
-namespace Installer;
+namespace InstallerJazz.Installer;
 
 public class DotNetInstaller
 {
