@@ -2,6 +2,9 @@
 
 namespace TerminalChad.Themes;
 
+/* Theme Loader Is Not Used Anymore, Please Use Theme Class
+ */
+
 internal class ThemeLoader
 {
     private string ThemeFolder = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/Themes/";
