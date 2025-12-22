@@ -4,7 +4,7 @@ namespace TerminalChad.Themes;
 
 public class Theme {
     public readonly string themeDirectory = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\");
-    public readonly string themePath = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default");
+    public readonly string themePath = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default\");
     private string PoshConfigLocation = String.Empty;
     private string PowershellProfileConfigLocation = String.Empty;
     private string StartupTextConfigLocation = String.Empty;
@@ -15,7 +15,8 @@ public class Theme {
     private string Active_StartUpTextConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/startup-text.ps1";
     private string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
 
-    Theme(bool fromCurrentState, string themeName) {
+    public Theme(bool fromCurrentState, string themeName) {
+        GenerateConfigLocationsForSaving(themeName);
         Console.WriteLine("Creating New Theme from Current State");
         themePath = Path.Combine(themeDirectory, themeName);
         SaveTheme();
@@ -23,12 +24,12 @@ public class Theme {
         Console.WriteLine($"Theme Location: {themePath}");
     }
 
-    Theme(string path) {
+    public Theme(string path) {
         themePath = path;
         GenerateConfigLocations();
     }
 
-    Theme(DirectoryInfo path) {
+    public Theme(DirectoryInfo path) {
         themePath = path.FullName;
         GenerateConfigLocations();
     }
@@ -49,6 +50,22 @@ public class Theme {
     }
 
     private void SaveTheme() {
+        if(!Directory.Exists(themePath)) {
+            Directory.CreateDirectory(themePath);
+        }
+        if(!File.Exists(PoshConfigLocation)) {
+            File.Create(PoshConfigLocation).Close();
+        }
+        if(!File.Exists(PowershellProfileConfigLocation)) {
+            File.Create(PowershellProfileConfigLocation).Close();
+        }
+        if(!File.Exists(StartupTextConfigLocation)) {
+            File.Create(StartupTextConfigLocation).Close();
+        }
+        if(!File.Exists(TerminalConfigLocation)) {
+            File.Create(TerminalConfigLocation).Close();
+        }
+
         File.Copy(Active_PoshConfigLocation, PoshConfigLocation, true);
         File.Copy(Active_ProfileConfigLocation, PowershellProfileConfigLocation, true);
         File.Copy(Active_StartUpTextConfigLocation, StartupTextConfigLocation, true);
@@ -56,9 +73,16 @@ public class Theme {
     }
 
     private void GenerateConfigLocations() {
-        PoshConfigLocation = Path.Combine(themePath, "\\config.json");
-        PowershellProfileConfigLocation = Path.Combine(themePath, "\\profile.ps1");
-        StartupTextConfigLocation = Path.Combine(themePath, "\\startup-text.ps1");
-        TerminalConfigLocation = Path.Combine(themePath, "\\settings.ps1");
+        PoshConfigLocation = Path.Combine(themePath, "config.json");
+        PowershellProfileConfigLocation = Path.Combine(themePath, "profile.ps1");
+        StartupTextConfigLocation = Path.Combine(themePath, "startup-text.ps1");
+        TerminalConfigLocation = Path.Combine(themePath, "settings.json");
+    }
+
+    private void GenerateConfigLocationsForSaving(string name) {
+        PoshConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "config.json");
+        PowershellProfileConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "profile.ps1");
+        StartupTextConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "startup-text.ps1");
+        TerminalConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "settings.json");
     }
 }
