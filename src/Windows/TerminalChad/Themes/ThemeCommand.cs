@@ -15,8 +15,8 @@ public class ThemeCommand {
         switch (input[1]) {
             case "set":
                 if (input.Length > 2) {
-                    ThemeLoader loader = new();
-                    loader.LoadTheme(input[2]);
+                    Theme theme = new Theme(Path.Combine(Theme.themeDirectory, input[2]));
+                    theme.Use();
                 }
                 else {
                     Console.WriteLine("No theme provided. Please type 'terminalchad -t list' to view all existing themes.");

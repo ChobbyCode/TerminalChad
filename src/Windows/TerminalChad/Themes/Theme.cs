@@ -3,7 +3,7 @@
 namespace TerminalChad.Themes;
 
 public class Theme {
-    public readonly string themeDirectory = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\");
+    public static readonly string themeDirectory = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\");
     public readonly string themePath = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default\");
     private string PoshConfigLocation = String.Empty;
     private string PowershellProfileConfigLocation = String.Empty;
@@ -16,15 +16,23 @@ public class Theme {
     private string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
 
     public Theme(bool fromCurrentState, string themeName) {
-        GenerateConfigLocationsForSaving(themeName);
-        Console.WriteLine("Creating New Theme from Current State");
-        themePath = Path.Combine(themeDirectory, themeName);
-        SaveTheme();
-        Console.WriteLine("Theme Created Successfully!");
-        Console.WriteLine($"Theme Location: {themePath}");
+        if (fromCurrentState) {
+            GenerateConfigLocationsForSaving(themeName);
+            Console.WriteLine("Creating New Theme from Current State");
+            themePath = Path.Combine(themeDirectory, themeName);
+            SaveTheme();
+            Console.WriteLine("Theme Created Successfully!");
+            Console.WriteLine($"Theme Location: {themePath}");
+        } else {
+            throw new NotImplementedException();
+        }
     }
 
     public Theme(string path) {
+        if (!Directory.Exists(path)) {
+            Console.WriteLine("Error Loading Theme: The Provided Directory Doesn't Exist!");
+            return;
+        }
         themePath = path;
         GenerateConfigLocations();
     }
@@ -39,7 +47,7 @@ public class Theme {
             Console.WriteLine("Error Loading Theme: Theme Doesn't Exist!");
             return;
         }
-        
+        CopyTheme();
     }
 
     private void CopyTheme() {
