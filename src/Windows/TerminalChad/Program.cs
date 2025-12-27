@@ -1,23 +1,37 @@
 ﻿using TerminalChad.CLI.Input;
+using TerminalChad.Profiles.Application;
 
 namespace TerminalChad.CLI;
 
 public class Program
 {
-    // 0.3.1 is the patch for the weird bug with the config file
-    // 0.3.2 is the patch for the weird bug with the config file and how it just resets everything
-    // 0.3.3-2026 is a patch to fix a compiling issue, and to fix the start up text issue.
-    // 1.0.0 is a very large rewrite of the main systems of TerminalChad
     public static string version = "v1.0.0";
+    public static Config.Config? config { get; private set; }
 
     public static void Main(string[] args)
     {
+        List<string> arguments = args.ToList();
+        bool useConfig = true;
+        if (arguments.Count > 0 && arguments[0] == "-!c") {
+            useConfig = false;
+            Console.WriteLine("Skipping config...");
+            arguments.RemoveAt(0); // Remove the flag to stop errors
+        }
+        if (!IsWindows()) throw new NotSupportedException("TerminalChad only supports Windows OS at the moment.");
+
+        if (useConfig) InitConfig();
+
+        InputParser parser = new InputParser();
+        parser.ParseInput(arguments.ToArray());
+    }
+
+    private static void InitConfig() {
         try
         {
-            TerminalChad.Config.Config cfg = new TerminalChad.Config.Config();
-            cfg.ReadConfig();
-            cfg.WriteConfig();
-            cfg.RunConfigInfo();
+            config = new TerminalChad.Config.Config();
+            config.ReadConfig(); // Read existing config file
+            config.WriteConfig(); // If there was an update this will fix any issues caused from updating
+            config.RunConfigInfo(); // Load the settings
         }
         catch
         {
@@ -25,11 +39,7 @@ public class Program
             Console.WriteLine("An error occurred whilst trying to read the config file. Please run the setup command to fix this.\n");
             Console.ForegroundColor = ConsoleColor.White;
         }
-
-        //ConfigurationInformation configureInformation = new();
-        //Console.WriteLine(configureInformation.toJson());
-
-        InputParser parser = new InputParser();
-        parser.ParseInput(args);
     }
+
+    private static bool IsWindows() => OperatingSystem.IsWindows();
 }

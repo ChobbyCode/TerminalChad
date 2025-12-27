@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Profiles\**" />
-    <EmbeddedResource Remove="Profiles\**" />
-    <None Remove="Profiles\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EditorConfigFiles Remove="E:\source\repos\TerminalChad\src\TerminalChad\.editorconfig" />
   </ItemGroup>
 

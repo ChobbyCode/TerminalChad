@@ -21,6 +21,8 @@ public class Config
 {
     public bool UseOldTitler { get; set; } = true;
     public int minTitleWidth { get; set; } = 103;
+    public bool EnableProfiles { get; set; } = true;
+    public bool EnableQuickScripts { get; set; } = false; // Disabled for security reasons, must be enabled to stopping rogue ps1 scripts from being executed
 
     public void WriteConfig()
     {

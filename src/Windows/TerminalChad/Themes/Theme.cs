@@ -3,17 +3,26 @@
 namespace TerminalChad.Themes;
 
 public class Theme {
+    // themeDirectory should never be updated. It will always point to the app data directory
     public static readonly string themeDirectory = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\");
+    // themPath must be combination of themeDirectory and the theme name
     public readonly string themePath = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default\");
+
+    // These are automatically generated every time a new theme is created
     private string PoshConfigLocation = String.Empty;
     private string PowershellProfileConfigLocation = String.Empty;
     private string StartupTextConfigLocation = String.Empty;
     private string TerminalConfigLocation = String.Empty;
 
+    // These are the active config locations. These should not really be changed.
     private string Active_PoshConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/config.json";
     private string Active_ProfileConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1";
     private string Active_StartUpTextConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/startup-text.ps1";
     private string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
+
+    public Theme() {
+        GenerateConfigLocations();
+    }
 
     public Theme(bool fromCurrentState, string themeName) {
         if (fromCurrentState) {
