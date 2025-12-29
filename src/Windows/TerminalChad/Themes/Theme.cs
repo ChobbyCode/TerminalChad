@@ -6,7 +6,9 @@ public class Theme {
     // themeDirectory should never be updated. It will always point to the app data directory
     public static readonly string themeDirectory = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\");
     // themPath must be combination of themeDirectory and the theme name
-    public readonly string themePath = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default\");
+    // When the theme is initialized, it should generate the themePath automatically from the themeName in case the theme was passed to another user
+    public readonly string themeName = "default";
+    public string themePath { get; private set; } = Path.Combine(@$"C:\users\{Environment.UserName}\appdata\roaming\TerminalChad\Themes\default\");
 
     // These are automatically generated every time a new theme is created
     private string PoshConfigLocation = String.Empty;
@@ -15,19 +17,21 @@ public class Theme {
     private string TerminalConfigLocation = String.Empty;
 
     // These are the active config locations. These should not really be changed.
-    private string Active_PoshConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/config.json";
-    private string Active_ProfileConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1";
-    private string Active_StartUpTextConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/startup-text.ps1";
-    private string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
+    private readonly string Active_PoshConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/config.json";
+    private readonly string Active_ProfileConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/profile.ps1";
+    private readonly string Active_StartUpTextConfigLocation = $"C:/users/{Environment.UserName}/appdata/roaming/TerminalChad/.active/startup-text.ps1";
+    private readonly string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
 
     public Theme() {
         GenerateConfigLocations();
+        themePath = Path.Combine(themeDirectory, themeName);
     }
 
     public Theme(bool fromCurrentState, string themeName) {
         if (fromCurrentState) {
             GenerateConfigLocationsForSaving(themeName);
             Console.WriteLine("Creating New Theme from Current State");
+            this.themeName = themeName;
             themePath = Path.Combine(themeDirectory, themeName);
             SaveTheme();
             Console.WriteLine("Theme Created Successfully!");
