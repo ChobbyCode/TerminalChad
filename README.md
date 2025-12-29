@@ -1,8 +1,8 @@
-<h1 align="center">Terminal Chad</h1>
+<h2 align="center">Terminal Chad</h1>
 <h6 align="center">Configurable, Themes, Profiles.</h6>
 
 <img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/cdf6a6fc-43d4-4405-9130-e4f2ac88f06d" alt="drawing" width="49%"> 
-<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/ba39e2e6-047b-4138-b328-201f33a91a5a" alt="drawing" width="49%">
+<img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/ba39e2e6-047b-4138-b328-201f33a91a5a" alt="drawing" width="50%">
 <img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/2a409b0a-dc55-4d8c-8f09-2f1291d7a82d" alt="drawing" width="98%">
 
 

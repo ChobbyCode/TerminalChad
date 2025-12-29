@@ -1,0 +1,12 @@
+# Changelog
+
+## v1.0.0
+
+### Added
+- Introduced the `profile` command surface with modifiers for creating, enabling, downloading, deleting, renaming, locating, editing, and rebuilding profiles, including guardrails for missing or invalid arguments.
+- Added profile bootstrap logic that activates the selected theme via `Theme.Use()`, installs declared `ApplicationDependency` instances, and prints status when a profile is enabled.
+- Implemented profile discovery in `%APPDATA%\TerminalChad\Profiles`, including automatic extraction of `.zip` and `.tchprofile` archives to hydrate missing profiles and validation of the required `config.json`.
+- Defined the core `Profile` model that aggregates the active `Theme`, `ApplicationDependency` collection, and `QuickScript` set so future commands share a single contract.
+
+### Changed
+- Simplified theme handling by disabling the old theme loader flow and routing profile activation directly through the unified `Theme` API, keeping theme enablement consistent with the new profile pipeline.
