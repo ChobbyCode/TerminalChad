@@ -1,4 +1,5 @@
 ﻿
+using TerminalChad.Json.Extensions;
 using TerminalChad.Profiles.Application;
 using TerminalChad.Profiles.Scripts;
 using TerminalChad.Themes;
@@ -6,7 +7,18 @@ using TerminalChad.Themes;
 namespace TerminalChad.Profiles;
 
 public class Profile {
-    Theme theme { get; set; } = new Theme();
-    List<ApplicationDependency> applicationDependencies { get; set; } = new List<ApplicationDependency>();
-    List<QuickScript> quickScripts { get; set; } = new List<QuickScript>();
+    public string profileName = "default";
+    public Theme theme { get; set; } = new Theme();
+    public List<ApplicationDependency> applicationDependencies { get; set; } = new List<ApplicationDependency>();
+    public List<QuickScript> quickScripts { get; set; } = new List<QuickScript>();
+
+    public void Export() {
+        if (ProfileHelper.ProfileExists(profileName) || Directory.Exists(ProfileHelper.GetProfilePath(profileName))) {
+            throw new Exception("Profile with the same name already exists.");
+        } else {
+            Directory.CreateDirectory(ProfileHelper.GetProfilePath(profileName));
+            string json = this.toJson();
+            File.WriteAllText(Path.Combine(ProfileHelper.GetProfilePath(profileName), "profile.json"), json);
+        }
+    }
 }
