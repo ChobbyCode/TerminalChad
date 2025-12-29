@@ -23,18 +23,38 @@ public class ProfileCommand {
      * terminalchad prfiles -m [PROFILE_NAME] -w                                Gets path of the profile
      * terminalchad profile -m [PROFILE_NAME] -c [SETTING_NAME] [NEW_VALUE]     Changes value of a profile setting
      * terminalchad profile -m [PROFILE_NAME] -b                                Reopens the profile builder
+     * terminalchad profile help me please                                      Prints help information about the help command
      */
 
     public void Parse(string[] args) {
         List<string>? arguments = TidyUpArguments(args);
         if (arguments == null || arguments.Count == 0) {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("To access help information about the help command type: 'terminalchad profile help me please'");
             Console.WriteLine("No profile command modifier provided. Please provide one of the following modifiers: '-n', '-u', '-d', '-m'");
             Console.ForegroundColor = ConsoleColor.White;
             return;
         }
+        if (arguments.Count == 3 && args[1] == "help" && args.Length >= 5 && args[2] == "me" && args[3] == "please") {
+            PrintHelpInformation();
+            return;
+        }
 
         SwitchInput(arguments);
+    }
+
+    private void PrintHelpInformation() {
+        Console.WriteLine("* === PROFILE USAGE ===");
+        Console.WriteLine("*");
+        Console.WriteLine("* terminalchad profile -n [PROFILE_NAME] [THEME]                           Creates a new profile");
+        Console.WriteLine("* terminalchad profile -u                                                  Enables a profile which already exists");
+        Console.WriteLine("* terminalchad profile -d                                                  Downloads profile(s) from a zipball url");
+        Console.WriteLine("* terminalchad profile -m [PROFILE_NAME] -x                                Deletes profile");
+        Console.WriteLine("* terminalchad profile -m [PROFILE_NAME] -r [NEW_NAME]                     Renames a profile");
+        Console.WriteLine("* terminalchad prfiles -m [PROFILE_NAME] -w                                Gets path of the profile");
+        Console.WriteLine("* terminalchad profile -m [PROFILE_NAME] -c [SETTING_NAME] [NEW_VALUE]     Changes value of a profile setting");
+        Console.WriteLine("* terminalchad profile -m [PROFILE_NAME] -b                                Reopens the profile builder");
+        Console.WriteLine("* terminalchad profile help me please                                      Prints help information about the help command");
     }
 
     private void SwitchInput(List<string> args) {
@@ -52,6 +72,9 @@ public class ProfileCommand {
             case "-m":
                 args.RemoveAt(0);
                 ManageProfile(args);
+                break;
+            case "help":
+                PrintHelpInformation();
                 break;
             default:
                 Console.WriteLine("Invalid operator");
@@ -162,7 +185,7 @@ public class ProfileCommand {
         arguments.RemoveAt(0);
         // Then check that the first argument is one of the valid modifiers: '-n', '-u', '-d', '-m'
         if (arguments.Count > 0) {
-            if (arguments[0] != "-n" && arguments[0] != "-u" && arguments[0] != "-d" && arguments[0] != "-m") {
+            if (arguments[0] != "-n" && arguments[0] != "-u" && arguments[0] != "-d" && arguments[0] != "-m" && arguments[0] != "help") {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"'{arguments[0]}' is not recognised as a valid profile command modifier.");
                 Console.ForegroundColor = ConsoleColor.White;

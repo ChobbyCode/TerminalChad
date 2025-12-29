@@ -19,25 +19,35 @@ public class Program
         }
         if (!IsWindows()) throw new NotSupportedException("TerminalChad only supports Windows OS at the moment.");
 
-        if (useConfig) InitConfig();
+        if (useConfig) {
+            bool configInitialized = InitConfig();
+            if (args.Length > 0 &&  args[0] == "setup") {
+                // Allow setup to run even if config failed to initialize
+            } else
+            if (!configInitialized) {
+                return; // Stop execution if config failed to initialize as this can cause error when program tries to use profile or theme command
+            }
+        }
 
         InputParser parser = new InputParser();
         parser.ParseInput(arguments.ToArray());
     }
 
-    private static void InitConfig() {
+    private static bool InitConfig() {
         try
         {
             config = new TerminalChad.Config.Config();
             config.ReadConfig(); // Read existing config file
             config.WriteConfig(); // If there was an update this will fix any issues caused from updating
             config.RunConfigInfo(); // Load the settings
+            return true;
         }
         catch
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("An error occurred whilst trying to read the config file. Please run the setup command to fix this.\n");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Type 'terminalchad setup' to fix this issue.\n");
+            return false;
         }
     }
 

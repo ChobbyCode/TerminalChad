@@ -18,6 +18,7 @@ internal class InputMessages
         Console.WriteLine("     setup       -s    Runs the setup script of the application");
         Console.WriteLine("     update      -u    View update information\n");
         Console.WriteLine("     theme       -t    Change your current theme of TerminalChad");
+        Console.WriteLine("     profile           Configure profiles for your system.");
         //Console.WriteLine("     profile     Profiles allow easy mass-swapping of config files on a range of applications");
     }
 

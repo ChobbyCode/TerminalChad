@@ -27,9 +27,8 @@ internal class Setup
         ThemeDownloader downloader = new();
         downloader.DownloadThemeZip("chobbycode.terminalchadthemes", "/", true);
 
-        ThemeLoader loader = new ThemeLoader();
-        loader.LoadTheme("default");
-        Console.WriteLine("Installing Themes");
+        Theme defaultTheme = new Theme();
+        defaultTheme.Use();
 
         Console.WriteLine("Successfully Setup. Please start a new instance of Powershell Terminal for certain changes to take place \n");
     }
