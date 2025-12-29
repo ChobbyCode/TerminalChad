@@ -16,7 +16,7 @@ internal class ProfileHelper {
         // Check if the profile exists as a directory
         if (Directory.Exists(Path.Combine(profilesPath, profileName))) {
             // Must also contain magic config.json file which can be extracted
-            if (File.Exists(Path.Combine(profilesPath, profileName, "config.json"))) {
+            if (File.Exists(Path.Combine(profilesPath, profileName, "profile.json"))) {
                 return true;
             }
             else {
@@ -81,6 +81,21 @@ internal class ProfileHelper {
         string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         string profilesPath = Path.Combine(appDataPath, "TerminalChad", "Profiles");
         return Path.Combine(profilesPath, profileName);
+    }
+
+    internal static Profile GetProfile(string profileName) {
+        if (!ProfileExists(profileName)) {
+            throw new Exception($"Profile '{profileName}' does not exist.");
+        }
+
+        string profilePath = GetProfilePath(profileName);
+        string profileConfigPath = Path.Combine(profilePath, "profile.json");
+        if (!File.Exists(profileConfigPath)) {
+            throw new Exception($"Profile configuration file not found at '{profileConfigPath}'.");
+        }
+        string profileJson = File.ReadAllText(profileConfigPath);
+        Profile profile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(profileJson) ?? new Profile();
+        return profile;
     }
 
 }
