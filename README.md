@@ -79,12 +79,17 @@ terminalchad theme set RestorePoint
 
 ### Themes
 
+Themes bundle configuration information for the style of your windows terminal, OhMyPosh, and start up text/logo for powershell.
+
+Themes are stored in %appdata%/terminalchad/themes
+
 #### Themes list
 
 Below gets a list of all the themes on your device
 ```
 terminalchad theme list
 ```
+This will read %appdata%/terminalchad/themes and give a list of all themes stored in there.
 
 #### Themes set
 
@@ -117,6 +122,8 @@ terminalchad theme download chobbycode.terminalchadthemes / -m
 
 #### Themes generate
 
+This is practically how you export a theme to send it to someone else.
+
 ```
 terminalchad theme generate [theme_name]
 ```
@@ -124,9 +131,11 @@ This will create a new theme from your current windows terminal configuration wh
 > [!Warning]
 > Make sure to swap [theme_name] or for the name of the theme which you want to call it
 
+Generated themes are stored in %appdata%/terminalchad/themes
+
 #### Themes export
 
-Not implemented yet.
+Not implemented yet. You can achieve the same functionality by using the generate method then navigating to %appdata%/terminalchad/themes
 
 ### Profiles
 
