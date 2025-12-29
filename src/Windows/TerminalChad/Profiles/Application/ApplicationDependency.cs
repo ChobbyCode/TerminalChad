@@ -4,15 +4,15 @@ using System.Diagnostics;
 namespace TerminalChad.Profiles.Application;
 
 public class ApplicationDependency {
-    string Name { get; set; } = "New Application Dependency";
-    string Description { get; set; } = "New Application Dependency";
+    public string Name { get; set; } = "New Application Dependency";
+    public string Description { get; set; } = "New Application Dependency";
 
     // When the Application Dependency is executed, will it download a file from which must be executed?
-    bool URIDownload { get; set; } = false;
-    string? FileType { get; set; } = null; // The type of file downloaded which will be executed. 
+    public bool URIDownload { get; set; } = false;
+    public string? FileType { get; set; } = null; // The type of file downloaded which will be executed. 
 
     // Recommended to use winget commands where possible for better compatibility.
-    string WinGetCommand { get; set; } = "winget install Microsoft.AzureCLI"; // The winget command to install the application.
+    public string WinGetCommand { get; set; } = "winget install Microsoft.AzureCLI"; // The winget command to install the application.
 
     public void Install() {
         bool install = GetInstallConfirmation();
