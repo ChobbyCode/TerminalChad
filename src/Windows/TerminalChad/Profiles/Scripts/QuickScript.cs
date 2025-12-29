@@ -3,10 +3,10 @@ using System.Diagnostics;
 
 namespace TerminalChad.Profiles.Scripts;
 public class QuickScript {
-    FileInfo ScriptPath { get; set; } = new FileInfo("C:\\Path\\To\\Script.ps1");
+    public FileInfo ScriptPath { get; set; } = new FileInfo("C:\\Path\\To\\Script.ps1");
 
-    string Name { get; set; } = "New Quick Script";
-    string Description { get; set; } = "New Quick Script Description";
+    public string Name { get; set; } = "New Quick Script";
+    public string Description { get; set; } = "New Quick Script Description";
 
     public void Run() {
         bool valid = VerifyFilePath();
