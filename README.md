@@ -1,99 +1,134 @@
 <h1 align="center">Terminal Chad</h1>
-<h6 align="center">Making your terminal giga again</h6>
+<h6 align="center">Configurable, Themes, Profiles.</h6>
 
 <img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/cdf6a6fc-43d4-4405-9130-e4f2ac88f06d" alt="drawing" width="49%"> 
 <img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/ba39e2e6-047b-4138-b328-201f33a91a5a" alt="drawing" width="49%">
 <img src="https://github.com/ChobbyCode/TerminalChad/assets/100038952/2a409b0a-dc55-4d8c-8f09-2f1291d7a82d" alt="drawing" width="98%">
 
 
->>> ###### Images Subject To Change
+## Features (for v1.0.0)
 
+- Themes Provided By [TerminalChadThemeRepository](https://github.com/ChobbyCode/TerminalChadThemes)
+- Profiles To Quickly Swap Between Themes, Installed Programs, & Quickscripts
 
-## Indexes 
+### Experimental Features
 
-## Features (v0.2.31)
+- Quickscipts | Powershell scripts which can automatically run to complete a task, instead of manually having to execute a ps1 or bat script, it will execute when a condition is met. Must be enabled through settings.
 
-- Configurable themes for powershell
-- Theme Switcher
-- Dedicated Installer
-- Ease Of Use
-- Reworks Look & Feel Of Powershell
-- Highly Customisable
-- Package-manger-like Installer For User Themes
-- Updater
+<h1><u><b>How To Install</b></u></h1>
 
-## Experimental (for v0.2.31)
+As of TerminalChad v0.2.0, the installation process for TerminalChad is rather simple. Just follow the steps laid out below to make sure you have it up and running fully.
 
-- Profiles & Mass-Application Configuration
+## Dependencies
 
-## Installation
+- Windows Terminal. This can be downloaded from the Microsoft Store.
+- [TerminalChad uses some nerd fonts, click here to download the required ones.](https://github.com/ChobbyCode/TerminalChad/raw/main/src/TerminalChad/Fonts/TerminalChad-Fonts.zip)
+- TerminalChad uses OhMyPosh. OhMyPosh will automatically install with the installer.
 
-TerminalChad has a very simple way of installing itself. All you require is git, a nerd font and powershell. Run all the commands in powershell. If you have any issues, please build the app from scratch and report it in the issues tab.
+<h2><u>Download The Installer</u></h2>
 
-## Required Fonts
+To install TerminalChad, first download the installer from the releases tab. 
 
-[Click here to download all the required nerd fonts in TerminalChad for the base themes](https://github.com/ChobbyCode/TerminalChad/raw/main/src/TerminalChad/Fonts/TerminalChad-Fonts.zip)
+The installer will ask for an install drive. Depending on your computer you may have a C drive, D drive etc. Please provide the drive you want to install the program on. 
 
-## Installing Application
+### From the command line
 
-## Via Installer
+Open up Windows Terminal and type the following command to check that terminalchad is installed. Type one of the following commands into terminalchad.
 
-### 1. Run This Command
-
-This command is required to be run as by default your system does not have a $Profile folder
 ```
-New-Item -Path $profile -Type File -Force
+terminalchad which
+terminalchad version
 ```
+> This will return the location at which terminalchad is installed to.
+> This will return the version of terminalchad which is installed.
 
-### 2. Download Installer
+# How To Use Terminal Chad
 
-Navigate to the releases page and download your selected Installer. Then run the Installer, follow the provided instructions.
+In a console type:
+### terminalchad [operator] [operator] [operator]
 
-### 2. Setup TerminalChad
+### How to setup terminalchad
 
-Once you have installed TerminalChad, we next need to enable it. This is easily done by typing the following command in Windows Terminal:
-```bash
-TerminalChad setup
+Run:
 ```
-
-### 3. Selecting a Theme
-
-To select a theme just type TerminalChad theme, this will give you a list themes.
-We can then type the name of the theme after the command i.e.
-```bash
-terminalchad theme set
-terminalchad theme set retro
+terminalchad setup
 ```
+> This will create the required directories in %appodata%/terminalchad which are required for the application to run. You may notice that the theme of your console changes when you run this command. 
 
-There are several themes included in TerminalChad, however you can make your own:
-
-[Click here to view how to make your own theme](https://github.com/ChobbyCode/TerminalChad/wiki/Themes)
-
-## Updating
-
-To update the application you can run the following command:
->> ###### The true is required as that puts the application in automatic mode
+The setup operator may change your theme of your windows terminal. If you already had a theme setup and want to restore it, simply type - in order:
 ```
-TerminalChadUpdate true
+terminalchad theme restore
+terminalchad theme generate RestorePoint
+```
+> The 'restore' operator will swap the theme back to the last applied theme
+> The 'generate' operator will generate a terminalchad theme called RestorePoint which you can swap to any point
+
+Once you have ran those commands please type the following command:
+```
+terminalchad theme set default
 ```
 
-## Uninstall
+Then when you want to swap to your old configuration, you can freely type:
+```
+terminalchad theme set RestorePoint
+```
+> [!Warning]
+> For this to work, you must have ran the terminalchad theme generate RestorePoint command
 
-To uninstall the application, you can download the installer and select the 'Uninstall' option instead. Make sure you pass in the drive you installed TerminalChad on.
+## Features
 
+### Themes
 
-## ToDo List
+#### Themes list
 
-View the trello board [here](https://trello.com/b/IuorHvB0/terminalchad)
+Below gets a list of all the themes on your device
+```
+terminalchad theme list
+```
 
-Before discussing the checklist, we should probably discuss what is the goal of TerminalChad:
+#### Themes set
 
-The goal of TerminalChad is to remove the annoyance of setting up new computers with weird configuration and applications: when I was setting up neovim, it took me a whole 2 days: so I plan to change that to under 5 minutes.
+``` 
+terminalchad theme set [theme_name]
+```
+> where it says theme_name provide a theme you have installed which you would be able to get with the list operator
 
-- [x] Download Custom Themes
-- [x] Automatic Dependency Installation
-- [ ] Package Manager
-- [ ] Install all required tools on new computers
-- [ ] Mass Configuration
+#### Themes reload
+```
+terminalchad theme reload
+```
+> Downloads the latest themes provided by the TerminalChadTheme Library
 
-View more on the [trello board](https://trello.com/b/IuorHvB0/terminalchad)
+#### Themes download
+```
+terminalchad theme download user.repo
+```
+> this uses the same format as how neovim plugins are typically installed. 
+
+An example of a complete command that would work is provided below:
+```
+terminalchad theme download chobbycode.terminalchadthemes
+```
+By default the terminalchadtheme command will download from the main branch, if a theme library has the themes on the master branch you can run the following:
+```
+terminalchad theme download chobbycode.terminalchadthemes / -m
+```
+> this command is how you'd download the latest terminalchadtheme library prior to terminalchad v0.1.2. from tc 0.1.2 you can use reload
+
+#### Themes generate
+
+```
+terminalchad theme generate [theme_name]
+```
+This will create a new theme from your current windows terminal configuration which you can easily share to your friends. 
+> [!Warning]
+> Make sure to swap [theme_name] or for the name of the theme which you want to call it
+
+#### Themes export
+
+Not implemented yet.
+
+### Profiles
+
+Profiles are similar to themes but expand upon what's included in them.
+
