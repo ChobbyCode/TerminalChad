@@ -19,6 +19,12 @@ public class Program
         }
         if (!IsWindows()) throw new NotSupportedException("TerminalChad only supports Windows OS at the moment.");
 
+        if (!UpdaterApplicationPaired()) {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Warning: The updater application is missing. Please reinstall TerminalChad by visiting https://github.com/ChobbyCode/TerminalChad to ensure you receive updates.");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         if (useConfig) {
             bool configInitialized = InitConfig();
             if (args.Length > 0 &&  args[0] == "setup") {
@@ -47,9 +53,20 @@ public class Program
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("An error occurred whilst trying to read the config file. Please run the setup command to fix this.\n");
             Console.WriteLine("Type 'terminalchad setup' to fix this issue.\n");
+            Console.ForegroundColor = ConsoleColor.White;
             return false;
         }
     }
 
     private static bool IsWindows() => OperatingSystem.IsWindows();
+
+    private static bool UpdaterApplicationPaired() {
+        // Get base dir of terminalchad.exe
+        string baseDir = AppContext.BaseDirectory;
+        string updaterPath = Path.Combine(baseDir, "TerminalChadUpdater.exe");
+        if (File.Exists(updaterPath)) {
+            return true;
+        }
+        else return false;
+    }
 }
