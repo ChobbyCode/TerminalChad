@@ -8,7 +8,8 @@ internal class InputMessages
     {
         Console.WriteLine($"Copyright (c) ChobbyCode 2024-{DateTime.Now.Year}, All The Rights Reserved, MIT License");
         Console.WriteLine("Terminal Chad is a tool which allows for easy theme customisation of the Windows Terminal.\n");
-        Console.WriteLine("usage: terminalchad [command] [command] \n");
+        Console.WriteLine("usage:   terminalchad [operator] [operator] [operator]");
+        Console.WriteLine("example: terminalchad theme set default \n");
         Console.WriteLine("   COMMAND   ALTERNATIVE    DESCRIPTION \n");
         Console.WriteLine("     help        -h    Prints additional help information");
         Console.WriteLine("     controls          Prints control information for windows terminal");
