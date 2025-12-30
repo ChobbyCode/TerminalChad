@@ -94,7 +94,10 @@ internal class ProfileHelper {
             throw new Exception($"Profile configuration file not found at '{profileConfigPath}'.");
         }
         string profileJson = File.ReadAllText(profileConfigPath);
-        Profile profile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(profileJson) ?? new Profile();
+        Profile? profile = Newtonsoft.Json.JsonConvert.DeserializeObject<Profile>(profileJson);
+        if (profile == null) {
+            throw new Exception($"Failed to deserialize profile configuration from '{profileConfigPath}'.");
+        }
         return profile;
     }
 
