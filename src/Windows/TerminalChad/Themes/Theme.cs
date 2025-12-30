@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.Serialization;
 
 namespace TerminalChad.Themes;
 
@@ -23,8 +24,8 @@ public class Theme {
     private readonly string Active_TerminalConfigLocation = $@"C:\Users\{Environment.UserName}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json";
 
     public Theme() {
-        GenerateConfigLocations();
         themePath = Path.Combine(themeDirectory, themeName);
+        GenerateConfigLocations();
     }
 
     public Theme(bool fromCurrentState, string themeName) {
@@ -36,21 +37,25 @@ public class Theme {
             SaveTheme();
             Console.WriteLine("Theme Created Successfully!");
             Console.WriteLine($"Theme Location: {themePath}");
-        } else {
+        }
+        else {
             throw new NotImplementedException();
         }
     }
 
     public Theme(string path) {
+        DirectoryInfo pathInfo = new DirectoryInfo(path);
         if (!Directory.Exists(path)) {
             Console.WriteLine("Error Loading Theme: The Provided Directory Doesn't Exist!");
             return;
         }
-        themePath = path;
+        themeName = pathInfo.Name;
+        themePath = pathInfo.FullName;
         GenerateConfigLocations();
     }
 
     public Theme(DirectoryInfo path) {
+        themeName = path.Name;
         themePath = path.FullName;
         GenerateConfigLocations();
     }
@@ -71,19 +76,19 @@ public class Theme {
     }
 
     private void SaveTheme() {
-        if(!Directory.Exists(themePath)) {
+        if (!Directory.Exists(themePath)) {
             Directory.CreateDirectory(themePath);
         }
-        if(!File.Exists(PoshConfigLocation)) {
+        if (!File.Exists(PoshConfigLocation)) {
             File.Create(PoshConfigLocation).Close();
         }
-        if(!File.Exists(PowershellProfileConfigLocation)) {
+        if (!File.Exists(PowershellProfileConfigLocation)) {
             File.Create(PowershellProfileConfigLocation).Close();
         }
-        if(!File.Exists(StartupTextConfigLocation)) {
+        if (!File.Exists(StartupTextConfigLocation)) {
             File.Create(StartupTextConfigLocation).Close();
         }
-        if(!File.Exists(TerminalConfigLocation)) {
+        if (!File.Exists(TerminalConfigLocation)) {
             File.Create(TerminalConfigLocation).Close();
         }
 
@@ -105,5 +110,13 @@ public class Theme {
         PowershellProfileConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "profile.ps1");
         StartupTextConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "startup-text.ps1");
         TerminalConfigLocation = Path.Combine(themeDirectory, $"{name}\\", "settings.json");
+    }
+
+    [OnDeserialized] private void OnDeserialized(StreamingContext context) {
+        if (string.IsNullOrWhiteSpace(themePath)) {
+            themePath = Path.Combine(themeDirectory, themeName);
+        }
+
+        GenerateConfigLocations();
     }
 }
