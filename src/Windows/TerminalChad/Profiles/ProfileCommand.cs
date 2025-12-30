@@ -64,7 +64,7 @@ public class ProfileCommand {
                 CreateNewProfile();
                 break;
             case "-u":
-                EnableProfile();
+                EnableProfile(args[1]);
                 break;
             case "-d":
                 DownloadProfile();
@@ -86,8 +86,8 @@ public class ProfileCommand {
         ProfileBuilder builder = new ProfileBuilder();
     }
 
-    private void EnableProfile() {
-        Profile profile = new Profile();
+    private void EnableProfile(string profileName) {
+        Profile profile = ProfileHelper.GetProfile(profileName);
         // TO DO: Have it automatically source the scripts to run
 
         profile.theme.Use();
